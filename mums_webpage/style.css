@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{min-height: 100vh;
+    overflow-x: hidden;
+
+    }
+nav{
+margin: 0;
+padding: 0;
+background-color: gray;
+box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}  
+nav li{
+    height: 50px;
+}
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    /* to center the link ites vertically */
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+/* adding a hover effect */
+nav a:hover{
+    background-color: #f0f0f0;
+}
+/* sigh */
+nav li:first-child{
+    margin-right: auto;
+}
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0);
+     /* backdrop-filter: blur(10px) affects how the items will be rendered */
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);  
+    /* used to be display flex but got changed to display  none so it will  disappeer and let me give it an icon */
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li{
+width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+/* now give it display none to make it disappea and that way it will begone and will no longer be displayed on larger screens*/
+.menu-button{
+display: none;
+}
+/* we give postion relative to our hero section so */
+.hero{
+    padding: 100px 20px;
+    background: url(./images/demo/backgrounds/background\ image.png) no-repeat;
+    color: white;
+    position: relative;
+    text-align: left;
+    padding-left: 13%;
+    /* this is going to put the overlay above the hero section */
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+/* we can give the overlay absolute this overlay darkens the hero section while still maintaining transperancy
+any other thing you see there is to make sure nothing puts it out of place hence why you see all the 0's */
+.hero ::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.2);
+/* thiis is to help put the overlay behind the text too */
+z-index: -1;
+}
+h1{
+    margin-bottom: 20px;
+}
+.herobtns{
+    display: inline-flex;
+    gap: 25px;
+    position: relative;
+    z-index: 1;
+    margin-top: 25px;
+}
+.orderbtn{
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    background-color: #437000;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.supportbtn{
+    color:rgb(90, 245, 19);
+    padding: 15px 30px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.supportbtn:hover{
+    background-color: #a2ff0d;
+}
+.book-section {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: flex-start;
+gap: 30px;
+padding: 30px ;
+margin: 50px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.book{
+    flex: 1 1 calc(50% -10px);
+    background-color: yellowgreen;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    max-width: 50;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    padding: 2rem;
+}
+.cardimg{
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.title{
+
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+}
+.book-description{
+font-size: 15;
+color: #555;
+margin: 10px 0;
+}
+.buy{
+    background-color: #a2ff0d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 15;
+    margin-top: 10px;
+}
+.buy:hover{
+    background-color: #00ff7328;
+}
+.About-section{
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 50px;
+    margin: 50px;
+}
+.About{
+    color: yellowgreen;
+    font-style: italic;
+    font-weight: bold;
+}
+.icons-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin: 50px;
+    padding: 50px;
+}
+.icon{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    padding: 35px;
+}
+footer{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+/* responsiveness for moblie devices displays */
+@media(max-width: 800px){
+    /* now every element that has the class .hideonmoblile will not be visisble on devices that are smaller than 800 pixels (px) */
+.hideonmobile{
+    display: none;
+}
+/* adding this will only make available on smaller screens frs i a talking about the code below you kbow the one for the menu button? */
+.menu-button{
+    display: block;
+}
+}
+/* we want this to look sexy on moblie devices desplay sooooo weeee yeah  */
+@media(max-width:400px){
+    .sidebar{
+        width:100%;
+        height: 100vh;
+    }
+}
+@media(max-width:768px) {
+    .hero {
+        text-align: center;
+        padding: 50px 10px;
+        padding-left: 0;
+    }
+    .herobtns {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .orderbtn, .supportbtn {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+@media(max-width:600px) {
+    .book-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .book {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
+@media(max-width:600px) {
+    .icons-section {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    .icon {
+        flex: 1 1 45%;
+        margin: 10px;
+    }
+}
+
+@media(max-width:400px) {
+    .icon {
+        flex: 1 1 100%;
+    }
+}
+@media(max-width:400px) {
+    body {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .hero {
+        padding: 20px 10px;
+    }
+}
